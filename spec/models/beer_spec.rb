@@ -8,6 +8,8 @@ describe Beer do
   it { should belong_to :region }
   it { should belong_to :type }
   it { should have_and_belong_to_many :ratings }
+  it { should have_attached_file(:picture) }
+  it { should validate_attachment_content_type(:picture) }
 
   it "should update the slug after it saves" do
     test_beer = Beer.new(:name => "Bridgeport IPA", :price => 6.99, :abv => 5.6)
