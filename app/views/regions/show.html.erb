@@ -1,0 +1,9 @@
+<% content_for(:title, @region.name) %>
+
+<h1><%= @region.name %></h1>
+
+<%= link_to "Edit region", edit_region_path(@region.slug), :class=> "btn btn-default" %>
+<%= link_to "Delete", region_path(@region.slug),
+                         :confirm => "You sure?",
+                         :method => "delete",
+                         :class => "btn btn-danger" %>

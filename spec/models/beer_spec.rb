@@ -1,5 +1,16 @@
 require 'spec_helper'
 
 describe Beer do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it { should validate_presence_of :name }
+  it { should validate_uniqueness_of :name }
+  it { should validate_presence_of :price }
+  it { should validate_presence_of :abv }
+  it { should belong_to :region }
+  it { should belong_to :type }
+
+  it "should update the slug after it saves" do
+    test_beer = Beer.new(:name => "Bridgeport IPA", :price => 6.99, :abv => 5.6)
+    test_beer.save
+    test_beer.slug.should eq "bridgeport-ipa"
+  end
 end

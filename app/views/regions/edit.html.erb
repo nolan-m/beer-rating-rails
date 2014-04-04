@@ -1,0 +1,18 @@
+<%= content_for(:title, "Beer Fridge | Edit Region") %>
+
+<h1>Edit Region</h1>
+
+<%= render("layouts/errors", :object => @region) %>
+<div class="col-md-3" id="new-beer">
+<%= form_for(@region, :url => region_path(@region.slug)) do |f| %>
+  <div class="form-group">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+  <div class="hidden">
+    <%= f.label :slug %>
+    <%= f.text_field :slug %>
+  </div>
+  <%= f.submit(:class => "btn btn-primary") %>
+<% end %>
+</div>

@@ -8,6 +8,7 @@ gem 'coffee-rails'
 gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jquery-turbolinks'
+gem 'bootstrap-sass'
 
 group :development do
   gem 'better_errors'
@@ -15,7 +16,6 @@ group :development do
   gem 'quiet_assets'
   gem "therubyracer"
   gem "less-rails"
-  gem "twitter-bootstrap-rails"
 end
 
 group :test, :development do
@@ -24,6 +24,7 @@ end
 
 group :test do
   gem 'shoulda-matchers'
+  gem "shoulda-callback-matchers"
 end
 
 

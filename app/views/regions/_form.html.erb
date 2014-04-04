@@ -1,0 +1,14 @@
+<%= render("layouts/errors", :object => @region) %>
+<div class="col-md-3" id="new-region">
+<%= form_for(@region) do |f| %>
+  <div class="form-group">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+  <div class="hidden">
+    <%= f.label :slug %>
+    <%= f.text_field :slug %>
+  </div>
+  <%= f.submit(:class => "btn btn-primary") %>
+<% end %>
+</div>

@@ -1,0 +1,19 @@
+<div class="row">
+  <div class="col-md-12">
+
+    <h1>All Types</h1>
+    <% content_for(:title, "Beer Fridge | Type") %>
+
+    <ul>
+      <% @types.each do |type| %>
+        <li>
+          <%= link_to type.name, type_path(type.slug)%>
+        </li>
+      <% end %>
+    </ul>
+
+
+    <%= link_to "Add Type", new_type_path, :class=> "btn btn-default" %>
+
+  </div>
+</div>

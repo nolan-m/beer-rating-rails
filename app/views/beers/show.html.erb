@@ -1,0 +1,16 @@
+<% content_for(:title, @beer.name) %>
+
+<h1><%= @beer.name %></h1>
+
+<p>Price: $<%= @beer.price %></p>
+
+<p>ABV: <%= @beer.abv %>%</p>
+
+<p>Description: <%= @beer.description %></p>
+
+
+<%= link_to "Edit Beer", edit_beer_path(@beer.slug), :class=> "btn btn-default" %>
+<%= link_to "Delete", beer_path(@beer.slug),
+                         :confirm => "You sure?",
+                         :method => "delete",
+                         :class => "btn btn-danger" %>

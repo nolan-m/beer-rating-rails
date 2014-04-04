@@ -1,0 +1,19 @@
+<div class="row">
+  <div class="col-md-12">
+
+    <h1> All Beers</h1>
+    <% content_for(:title, "Beer Fridge | Beers") %>
+
+    <ul>
+      <% @beers.each do |beer| %>
+        <li>
+          <%= link_to beer.name, beer_path(beer.slug)%>
+        </li>
+      <% end %>
+    </ul>
+
+
+    <%= link_to "Add Beer", new_beer_path, :class=> "btn btn-default" %>
+
+  </div>
+</div>
