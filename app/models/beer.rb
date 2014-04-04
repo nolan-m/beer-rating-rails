@@ -7,6 +7,12 @@ class Beer < ActiveRecord::Base
   has_and_belongs_to_many :ratings
   after_save :slugify
 
+  def save_score
+    total = 0
+    self.ratings.each { |r| total += r.score }
+    self.update(total_rating: (total/self.ratings.size))
+  end
+
   private
     def slugify
       self.slug = self.name.parameterize

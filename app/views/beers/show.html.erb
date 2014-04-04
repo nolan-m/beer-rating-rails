@@ -17,9 +17,25 @@
       <% if @beer.region != nil %>
         <p>Region: <%= @beer.region.name %></p>
       <% end %>
+
+      <p>Average rating:</p>
+        <ul>
+        <% if @beer.total_rating.nil? %>
+          <li><p>No rating yet.</p>
+          <% else %>
+          <% stars = "<span class='glyphicon glyphicon-star'></span>".html_safe %>
+          <% @beer.total_rating.to_i.times do %>
+            <%= stars %>
+          <% end %>
+          <% empty = "<span class='glyphicon glyphicon-star-empty'></span>".html_safe %>
+          <% empty_stars = 5 - @beer.total_rating.to_i %>
+          <% empty_stars.times do %>
+            <%= empty %>
+          <% end %>
+        <% end %></li>
+</ul>
     </div>
-
-
+    <hr>
     <h4>Add your own review.</h4>
     <form action="/beers/<%= @beer.slug %>" method="post">
       <div class="form-group">
@@ -33,6 +49,19 @@
       </div>
     </form>
   </div>
+    <div class="col-md-4" id="reviews">
+      <p>Reviews:</p>
+        <ul>
+          <% @beer.ratings.each do |rating| %>
+          <li><%= rating.review %> |
+          <% stars = "<span class='glyphicon glyphicon-star'></span>".html_safe %>
+            <% rating.score.times do %>
+              <%= stars %>
+            <% end %>
+            </li>
+          <%end%>
+        </ul>
+    </div>
 </div>
 
 <div class="row">

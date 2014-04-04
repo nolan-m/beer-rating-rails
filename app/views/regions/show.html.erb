@@ -5,7 +5,7 @@
 <ul>
 <% @region.beers.each do |beer| %>
 
-<li><%= beer.name %></li>
+<li><%= link_to beer.name, beer_path(beer.slug)%></li>
 
 <% end %>
 </ul>

@@ -4,20 +4,49 @@
 
 <div class="row" id="featured">
   <h3>Featured Beer</h3>
-  <% if @featured != nil %>
-    <h4><%= @featured.name %></h4>
+    <% if @featured != nil %>
+      <div class="col-md-4">
+        <table class="table table-striped">
+          <h4><%= @featured.name %></h4>
 
-    <p>Price: $<%= @featured.price %></p>
+          <tr>
+            <td>Price: $<%= @featured.price %></td>
+          </tr>
 
-    <p>ABV: <%= @featured.abv %>%</p>
+          <tr>
+            <td>ABV: <%= @featured.abv %></td>
+          </tr>
 
-    <p>Description: <%= @featured.description %></p>
+          <tr>
+            <td>Description: <%= @featured.description %></td>
+          </tr>
 
-    <% if @featured.type != nil %>
-      <p>Type: <%= @featured.type.name %></p>
+          <% if @featured.type != nil %>
+            <tr>
+              <td>Type: <%= @featured.type.name %></td>
+            </tr>
+          <% end %>
+          <% if @featured.region != nil %>
+            <tr>
+              <td>Region: <%= @featured.region.name %>
+              </td>
+            </tr>
+          <% end %>
+        </table>
+      </div>
     <% end %>
-    <% if @featured.region != nil %>
-      <p>Region: <%= @featured.region.name %></p>
-    <% end %>
-  <% end %>
+
+    <div class="col-md-4" id="top_five">
+    <h3> Top Five Rated Beers: </h3>
+      <ol>
+        <% @top_five.each do |beer| %>
+          <li><%= beer.name %> | <%= beer.total_rating %></li>
+        <% end %>
+      </ol>
+    </div>
+
+  <div class="col-md-4"></div>
+</div>
+<hr>
+
 </div>
