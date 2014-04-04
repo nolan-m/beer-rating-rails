@@ -1,20 +1,48 @@
+
 <% content_for(:title, @beer.name) %>
 
-<h1><%= @beer.name %></h1>
+<div class="row">
+  <div class="col-md-4">
+    <h1><%= @beer.name %></h1>
+    <div id="beer-show">
+      <p>Price: $<%= @beer.price %></p>
 
-<p>Price: $<%= @beer.price %></p>
+      <p>ABV: <%= @beer.abv %>%</p>
 
-<p>ABV: <%= @beer.abv %>%</p>
+      <p>Description: <%= @beer.description %></p>
 
-<p>Description: <%= @beer.description %></p>
+      <% if @beer.type != nil %>
+        <p>Type: <%= @beer.type.name %></p>
+      <% end %>
+      <% if @beer.region != nil %>
+        <p>Region: <%= @beer.region.name %></p>
+      <% end %>
+    </div>
 
-<p>Type: <%= @type.name %></p>
 
-<p>Region: <%= @region.name %></p>
+    <h4>Add your own review.</h4>
+    <form action="/beers/<%= @beer.slug %>" method="post">
+      <div class="form-group">
+        <%= render('rating') %>
+
+      </div>
+      <div class="row">
+        <div class="col-md-4">
+          <button class="btn btn-default" id="review_btn">Add Review</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-4">
+    <%= link_to "Edit Beer", edit_beer_path(@beer.slug), :class=> "btn btn-primary" %>
+    <%= link_to "Delete", beer_path(@beer.slug),
+                             :confirm => "You sure?",
+                             :method => "delete",
+                             :class => "btn btn-danger" %>
+  </div>
+</div>
 
 
-<%= link_to "Edit Beer", edit_beer_path(@beer.slug), :class=> "btn btn-default" %>
-<%= link_to "Delete", beer_path(@beer.slug),
-                         :confirm => "You sure?",
-                         :method => "delete",
-                         :class => "btn btn-danger" %>

@@ -1,6 +1,15 @@
 <% content_for(:title, @region.name) %>
-
+<div class="row">
 <h1><%= @region.name %></h1>
+
+<ul>
+<% @region.beers.each do |beer| %>
+
+<li><%= beer.name %></li>
+
+<% end %>
+</ul>
+</div>
 
 <%= link_to "Edit region", edit_region_path(@region.slug), :class=> "btn btn-default" %>
 <%= link_to "Delete", region_path(@region.slug),

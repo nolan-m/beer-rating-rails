@@ -1,7 +1,15 @@
 <% content_for(:title, @type.name) %>
-
+<div class="row">
 <h1><%= @type.name %></h1>
+<ul>
+<% @type.beers.each do |beer| %>
 
+<li><%= beer.name %></li>
+
+<% end %>
+</ul>
+</div>
+<hr>
 <%= link_to "Edit Type", edit_type_path(@type.slug), :class=> "btn btn-default" %>
 <%= link_to "Delete", type_path(@type.slug),
                          :confirm => "You sure?",

@@ -21,12 +21,12 @@ class BeersController < ApplicationController
 
   def show
     @beer = Beer.find_by(:slug => params[:id])
-    @type = Type.find(@beer.type_id)
-    @region = Region.find(@beer.region_id)
   end
 
   def edit
     @beer = Beer.find_by(:slug => params[:id])
+    @types = Type.all
+    @regions = Region.all
   end
 
   def update

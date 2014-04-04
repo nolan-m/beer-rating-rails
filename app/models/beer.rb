@@ -4,6 +4,7 @@ class Beer < ActiveRecord::Base
   validates :abv, :presence => true
   belongs_to :region
   belongs_to :type
+  has_and_belongs_to_many :ratings
   after_save :slugify
 
   private

@@ -1,0 +1,23 @@
+<div class="row">
+<h1>Beer Fridge</h1>
+</div>
+
+<div class="row" id="featured">
+  <h3>Featured Beer</h3>
+  <% if @featured != nil %>
+    <h4><%= @featured.name %></h4>
+
+    <p>Price: $<%= @featured.price %></p>
+
+    <p>ABV: <%= @featured.abv %>%</p>
+
+    <p>Description: <%= @featured.description %></p>
+
+    <% if @featured.type != nil %>
+      <p>Type: <%= @featured.type.name %></p>
+    <% end %>
+    <% if @featured.region != nil %>
+      <p>Region: <%= @featured.region.name %></p>
+    <% end %>
+  <% end %>
+</div>
