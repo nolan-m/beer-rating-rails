@@ -7,7 +7,7 @@
 <%= form_for(@type, :url => type_path(@type.slug)) do |f| %>
   <div class="form-group">
     <%= f.label :name %>
-    <%= f.text_field :name %>
+    <%= f.text_field :name, :autofocus => true %>
   </div>
   <div class="hidden">
     <%= f.label :slug %>

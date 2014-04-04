@@ -7,7 +7,7 @@
 <%= form_for(@type) do |f| %>
   <div class="form-group">
     <%= f.label :name %>
-    <%= f.text_field :name %>
+    <%= f.text_field :name, :autofocus => true %>
   </div>
   <div class="hidden">
     <%= f.label :slug %>

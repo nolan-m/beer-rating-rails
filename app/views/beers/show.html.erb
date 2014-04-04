@@ -8,6 +8,10 @@
 
 <p>Description: <%= @beer.description %></p>
 
+<p>Type: <%= @type.name %></p>
+
+<p>Region: <%= @region.name %></p>
+
 
 <%= link_to "Edit Beer", edit_beer_path(@beer.slug), :class=> "btn btn-default" %>
 <%= link_to "Delete", beer_path(@beer.slug),

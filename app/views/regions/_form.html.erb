@@ -1,9 +1,9 @@
 <%= render("layouts/errors", :object => @region) %>
 <div class="col-md-3" id="new-region">
 <%= form_for(@region) do |f| %>
-  <div class="form-group">
+  <div class="form-group" focus>
     <%= f.label :name %>
-    <%= f.text_field :name %>
+    <%= f.text_field :name, :autofocus => true %>
   </div>
   <div class="hidden">
     <%= f.label :slug %>

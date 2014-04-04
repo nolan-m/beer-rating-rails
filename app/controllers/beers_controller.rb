@@ -5,6 +5,8 @@ class BeersController < ApplicationController
 
   def new
     @beer = Beer.new
+    @types = Type.all
+    @regions = Region.all
   end
 
   def create
@@ -19,6 +21,8 @@ class BeersController < ApplicationController
 
   def show
     @beer = Beer.find_by(:slug => params[:id])
+    @type = Type.find(@beer.type_id)
+    @region = Region.find(@beer.region_id)
   end
 
   def edit
