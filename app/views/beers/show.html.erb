@@ -5,6 +5,9 @@
   <div class="col-md-4">
     <h1><%= @beer.name %></h1>
     <div id="beer-show">
+      <% if @beer.p_url != nil %>
+      <img src="<%= @beer.p_url %>" class="img-responsive" id="beer_img">
+      <% end %>
       <p>Price: $<%= @beer.price %></p>
 
       <p>ABV: <%= @beer.abv %>%</p>
