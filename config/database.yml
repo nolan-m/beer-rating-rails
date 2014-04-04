@@ -1,0 +1,7 @@
+development:
+  adapter: postgresql
+  database: beer_fridge_development
+
+test:
+  adapter: postgresql
+  database: beer_fridge_test
