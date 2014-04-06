@@ -1,38 +1,24 @@
 <div class="row">
 <h1>Beer Fridge</h1>
+<hr>
 </div>
 
 <div class="row" id="featured">
+  <div class="col-md-4" id="featured_beer">
   <h3>Featured Beer</h3>
     <% if @featured != nil %>
-      <div class="col-md-4">
-        <table class="table table-striped">
-          <h4><%= @featured.name %></h4>
-
-          <tr>
-            <td>Price: $<%= @featured.price %></td>
-          </tr>
-
-          <tr>
-            <td>ABV: <%= @featured.abv %></td>
-          </tr>
-
-          <tr>
-            <td>Description: <%= @featured.description %></td>
-          </tr>
-
-          <% if @featured.type != nil %>
-            <tr>
-              <td>Type: <%= @featured.type.name %></td>
-            </tr>
-          <% end %>
-          <% if @featured.region != nil %>
-            <tr>
-              <td>Region: <%= @featured.region.name %>
-              </td>
-            </tr>
-          <% end %>
-        </table>
+        <dl class="dl-horizontal">
+        <dt>Name:</dt><dd><%= @featured.name %></dd>
+        <dt>Price: </dt> <dd>$<%= @featured.price %></dd>
+        <dt>ABV: </dt><dd><%= @featured.abv %>%</dd>
+        <dt>Description: </dt><dd><%= @featured.description %></dd>
+        <% if @featured.type != nil %>
+          <dt>Type: </dt><dd><%= @featured.type.name %></dd>
+        <% end %>
+        <% if @featured.region != nil %>
+          <dt>Region: </dt><dd><%= @featured.region.name %></dd>
+        <% end %>
+      </dl>
       </div>
     <% end %>
 
@@ -45,7 +31,17 @@
       </ol>
     </div>
 
+    <div class="col-md-4" id="recent_reviews">
+    <h3>Recently Reviewed Beers: </h3>
+      <ol>
+        <% @top_five.each do |beer| %>
+          <li><%= beer.name %> | <%= beer.total_rating %></li>
+        <% end %>
+      </ol>
+    </div>
 
+
+<hr>
 </div>
 
 

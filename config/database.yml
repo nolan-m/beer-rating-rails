@@ -5,3 +5,8 @@ development:
 test:
   adapter: postgresql
   database: beer_fridge_test
+
+production:
+  adapter: postgresql
+  encoding: unicode
+  database: beer_fridge_production

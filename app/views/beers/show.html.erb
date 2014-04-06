@@ -2,42 +2,8 @@
 <% content_for(:title, @beer.name) %>
 
 <div class="row">
-  <div class="col-md-4">
-    <h1><%= @beer.name %></h1>
-    <div id="beer-show">
-      <% if @beer.p_url != nil %>
-      <img src="<%= @beer.p_url %>" class="img-responsive" id="beer_img">
-      <% end %>
-      <p>Price: $<%= @beer.price %></p>
-
-      <p>ABV: <%= @beer.abv %>%</p>
-
-      <p>Description: <%= @beer.description %></p>
-
-      <% if @beer.type != nil %>
-        <p>Type: <%= @beer.type.name %></p>
-      <% end %>
-      <% if @beer.region != nil %>
-        <p>Region: <%= @beer.region.name %></p>
-      <% end %>
-
-      <p>Average rating:</p>
-        <ul>
-        <% if @beer.total_rating.nil? %>
-          <li><p>No rating yet.</p>
-          <% else %>
-          <% stars = "<span class='glyphicon glyphicon-star'></span>".html_safe %>
-          <% @beer.total_rating.to_i.times do %>
-            <%= stars %>
-          <% end %>
-          <% empty = "<span class='glyphicon glyphicon-star-empty'></span>".html_safe %>
-          <% empty_stars = 5 - @beer.total_rating.to_i %>
-          <% empty_stars.times do %>
-            <%= empty %>
-          <% end %>
-        <% end %></li>
-</ul>
-    </div>
+  <div class="col-md-6" id="show_beer">
+    <%= render 'show_beer' %>
     <hr>
     <h4>Add your own review.</h4>
     <form action="/beers/<%= @beer.slug %>" method="post">
@@ -46,14 +12,14 @@
 
       </div>
       <div class="row">
-        <div class="col-md-4">
+        <div class="col-md-6">
           <button class="btn btn-default" id="review_btn">Add Review</button>
         </div>
       </div>
     </form>
   </div>
-    <div class="col-md-4" id="reviews">
-      <p>Reviews:</p>
+    <div class="col-md-6" id="reviews">
+      <h4>Reviews:</h4>
         <ul>
           <% @beer.ratings.each do |rating| %>
           <li><%= rating.review %> |
@@ -68,7 +34,8 @@
 </div>
 
 <div class="row">
-  <div class="col-md-4">
+  <hr>
+  <div class="col-md-4" id="edit_delete">
     <%= link_to "Edit Beer", edit_beer_path(@beer.slug), :class=> "btn btn-primary" %>
     <%= link_to "Delete", beer_path(@beer.slug),
                              :confirm => "You sure?",

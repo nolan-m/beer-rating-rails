@@ -1,17 +1,25 @@
 <% content_for(:title, @type.name) %>
 <div class="row">
-<h1><%= @type.name %></h1>
-<ul>
-<% @type.beers.each do |beer| %>
+	<div class="col-md-12">
+		<h1><%= @type.name %></h1>
+		<ul>
+		<% @type.beers.each do |beer| %>
 
-<li><%= link_to beer.name, beer_path(beer.slug)%></li>
+		<li><%= link_to beer.name, beer_path(beer.slug)%></li>
 
-<% end %>
-</ul>
+		<% end %>
+		</ul>
+	</div>
+	<hr>
 </div>
-<hr>
-<%= link_to "Edit Type", edit_type_path(@type.slug), :class=> "btn btn-default" %>
-<%= link_to "Delete", type_path(@type.slug),
-                         :confirm => "You sure?",
-                         :method => "delete",
-                         :class => "btn btn-danger" %>
+<div class="row">
+	<div class="col-md-12">
+
+	<hr>
+	<%= link_to "Edit Type", edit_type_path(@type.slug), :class=> "btn btn-default" %>
+	<%= link_to "Delete", type_path(@type.slug),
+	                         :confirm => "You sure?",
+	                         :method => "delete",
+	                         :class => "btn btn-danger" %>
+	</div>
+</div>

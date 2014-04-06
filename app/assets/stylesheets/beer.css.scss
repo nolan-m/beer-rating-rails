@@ -1,3 +1,4 @@
+
 input {
   float: right;
 }
@@ -47,4 +48,24 @@ textarea {
 }
 #beer_img {
   margin: 10px 10px 10px 10px;
+}
+
+#show_beer {
+  margin-bottom: 50px;
+}
+
+#edit_delete {
+  margin-bottom: 50px;
+}
+
+#featured_beer {
+  text-align: left;
+}
+
+#new-beer {
+  margin-bottom: 25px;
+}
+
+.btn {
+  margin-top: 15px;
 }

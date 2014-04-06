@@ -1,0 +1,37 @@
+<%= render("layouts/errors", :object => @beer) %>
+<div class="col-md-3" id="new-beer">
+<%= form_for(@beer, :url => beer_path(@beer.slug)) do |f| %>
+  <div class="form-group">
+    <%= f.label :name %>
+    <%= f.text_field :name, :autofocus => true %>
+  </div>
+  <div class="form-group">
+    <%= f.label :price %>
+    <%= f.text_field :price %>
+  </div>
+  <div class="form-group">
+    <%= f.label :abv, "ABV" %>
+    <%= f.text_field :abv %>
+  </div>
+  <div class="form-group">
+    <%= f.label :description %>
+    <%= f.text_area :description %>
+  </div>
+  <div class="form-group">
+    <%= f.label :type %>
+    <%= f.collection_select :type_id, @types, :id, :name %>
+  </div>
+  <div class="form-group">
+    <%= f.label :region %>
+    <%= f.collection_select :region_id, @regions, :id, :name %>
+  </div>
+  <div class ="form-group">
+    <%= f.label :p_url, "Picture link" %>
+    <%= f.text_area :p_url %>
+  </div>
+  <div class="hidden">
+    <%= f.label :slug %>
+    <%= f.text_field :slug %>
+  </div>
+  <%= f.submit(:class => "btn btn-primary") %>
+<% end %>
