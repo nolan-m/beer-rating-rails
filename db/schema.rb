@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140404233214) do
+ActiveRecord::Schema.define(version: 20140413172754) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,7 +21,6 @@ ActiveRecord::Schema.define(version: 20140404233214) do
     t.string   "description"
     t.decimal  "abv"
     t.decimal  "total_rating"
-    t.integer  "region_id"
     t.integer  "type_id"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -32,11 +31,20 @@ ActiveRecord::Schema.define(version: 20140404233214) do
     t.integer  "picture_file_size"
     t.datetime "picture_updated_at"
     t.text     "p_url"
+    t.integer  "brewery_id"
   end
 
   create_table "beers_ratings", force: true do |t|
     t.integer "beer_id"
     t.integer "rating_id"
+  end
+
+  create_table "breweries", force: true do |t|
+    t.string   "name"
+    t.integer  "region_id"
+    t.string   "slug"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "ratings", force: true do |t|

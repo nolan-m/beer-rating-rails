@@ -5,7 +5,7 @@ describe Beer do
   it { should validate_uniqueness_of :name }
   it { should validate_presence_of :price }
   it { should validate_presence_of :abv }
-  it { should belong_to :region }
+  it { should belong_to :brewery }
   it { should belong_to :type }
   it { should have_and_belong_to_many :ratings }
   it { should have_attached_file(:picture) }

@@ -5,7 +5,7 @@ class Beer < ActiveRecord::Base
   has_attached_file :picture, :styles => { :medium => "300x300>" }
   validates_attachment_content_type :picture, :content_type => /\Aimage\/.*\Z/
 
-  belongs_to :region
+  belongs_to :brewery
   belongs_to :type
   has_and_belongs_to_many :ratings
 

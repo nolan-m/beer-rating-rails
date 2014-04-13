@@ -6,14 +6,13 @@ class BeersController < ApplicationController
   def new
     @beer = Beer.new
     @types = Type.all
-    @regions = Region.all
+    @breweries = Brewery.all
   end
 
   def create
     @beer = Beer.new(params[:beer])
     if @beer.save
-      flash[:notice] = "Beer added!"
-      redirect_to beers_path
+      redirect_to beers_path, notice: "Beer added."
     else
       render 'new'
     end

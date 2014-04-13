@@ -10,8 +10,7 @@ class RegionsController < ApplicationController
   def create
     @region = Region.new(params[:region])
     if @region.save
-      flash[:notice] = "Region added!"
-      redirect_to regions_path
+      redirect_to regions_path, notice: "Region added."
     else
       render 'new'
     end
@@ -28,8 +27,7 @@ class RegionsController < ApplicationController
   def update
     @region = Region.find_by(:slug => params[:id])
     if @region.update(params[:region])
-      flash[:notice] = "Region updated!"
-      redirect_to region_path(@region.slug)
+      redirect_to region_path(@region.slug), notice: "Region updated."
     else
       render 'edit'
     end

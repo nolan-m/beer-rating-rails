@@ -10,8 +10,7 @@ class TypesController < ApplicationController
   def create
     @type = Type.new(params[:type])
     if @type.save
-      flash[:notice] = "Type added!"
-      redirect_to types_path
+      redirect_to types_path, notice: "Type added."
     else
       render 'new'
     end
@@ -28,8 +27,7 @@ class TypesController < ApplicationController
   def update
     @type = Type.find_by(:slug => params[:id])
     if @type.update(params[:type])
-      flash[:notice] = "Type updated!"
-      redirect_to type_path(@type.slug)
+      redirect_to type_path(@type.slug), notice: "Type updated."
     else
       render 'edit'
     end

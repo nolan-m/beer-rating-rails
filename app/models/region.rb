@@ -1,6 +1,6 @@
 class Region < ActiveRecord::Base
   validates :name, :presence => true, :uniqueness => true
-  has_many :beers
+  has_many :breweries
   after_save :slugify
 
   private
