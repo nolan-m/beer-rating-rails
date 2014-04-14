@@ -4,20 +4,14 @@
         <% if @beer.p_url != nil %>
         <img src="<%= @beer.p_url %>" class="img-responsive img-rounded" id="beer_img">
         <% end %>
+        <dt>Brewery: </dt><dd> <%= @beer.brewery.name %>
+        <dt>Region: </dt><dd><%= @beer.brewery.region.name %></dd>
+        <dt>Type: </dt><dd><%= @beer.type.name %></dd>
         <dt>Price: </dt><dd>$<%= @beer.price %></dd>
-
         <dt>ABV: </dt><dd><%= @beer.abv %>%</dd>
-
         <dt>Description: </dt><dd><%= @beer.description %></dd>
-
-        <% if @beer.type != nil %>
-          <dt>Type: </dt><dd><%= @beer.type.name %></dd>
-        <% end %>
-        <% if @beer.region != nil %>
-          <dt>Region: </dt><dd><%= @beer.region.name %></dd>
-        <% end %>
         <dt>Average rating:</dt>
-        
+
         <% if @beer.total_rating.nil? %>
           <dd><p>No rating yet.</dd>
           <% else %>
@@ -30,7 +24,6 @@
           <% empty_stars = 5 - @beer.total_rating.to_i %>
           <% empty_stars.times do %>
             <%= empty %>
-          
           <% end %>
         <% end %></dd>
         </dl>

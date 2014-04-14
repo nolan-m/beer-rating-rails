@@ -1,23 +1,24 @@
-<div class="row">
-<h1>Beer Fridge</h1>
-<hr>
-</div>
 
+<div class="container">
+  <div class="text-center">
+    <h1>The Beer Fridge</h1>
+    <p class="lead">View and rate beers from breweries located all over the United States.</p>
+    <hr>
+  </div>
+  
+</div>
 <div class="row" id="featured">
   <div class="col-md-4" id="featured_beer">
   <h3>Featured Beer</h3>
     <% if @featured != nil %>
         <dl class="dl-horizontal">
         <dt>Name:</dt><dd><%= @featured.name %></dd>
+        <dt>Brewery: </dt><dd><%= @featured.brewery.name %></dd>
+        <dt>Region: </dt><dd><%= @featured.brewery.region.name %></dd>
+        <dt>Type: </dt><dd><%= @featured.type.name %></dd>
         <dt>Price: </dt> <dd>$<%= @featured.price %></dd>
         <dt>ABV: </dt><dd><%= @featured.abv %>%</dd>
         <dt>Description: </dt><dd><%= @featured.description %></dd>
-        <% if @featured.type != nil %>
-          <dt>Type: </dt><dd><%= @featured.type.name %></dd>
-        <% end %>
-        <% if @featured.region != nil %>
-          <dt>Region: </dt><dd><%= @featured.region.name %></dd>
-        <% end %>
       </dl>
       </div>
     <% end %>

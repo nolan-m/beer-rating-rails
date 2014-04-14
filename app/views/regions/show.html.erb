@@ -1,11 +1,13 @@
-<% content_for(:title, @region.name) %>
+<%= content_for(:title, "#{@region.name} | Beer Fridge") %>
+
 <div class="row">
+  <div class="col-md-12">
 <h1><%= @region.name %></h1>
 
 <ul>
-<% @region.beers.each do |beer| %>
+<% @region.breweries.each do |brewery| %>
 
-<li><%= link_to beer.name, beer_path(beer.slug)%></li>
+<li><%= link_to brewery.name, brewery_path(brewery.slug)%></li>
 
 <% end %>
 </ul>
@@ -17,3 +19,7 @@
                          :confirm => "You sure?",
                          :method => "delete",
                          :class => "btn btn-danger" %>
+
+
+</div>
+</div>

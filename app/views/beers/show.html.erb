@@ -1,14 +1,14 @@
 
-<% content_for(:title, @beer.name) %>
+<%= content_for(:title, "#{@beer.name} | #{@beer.brewery.name} | Beer Fridge") %>
 
 <div class="row">
   <div class="col-md-6" id="show_beer">
-    <%= render 'show_beer' %>
+    <%= render 'beers/show_beer' %>
     <hr>
     <h4>Add your own review.</h4>
     <form action="/beers/<%= @beer.slug %>" method="post">
       <div class="form-group">
-        <%= render('rating') %>
+        <%= render 'rating' %>
 
       </div>
       <div class="row">

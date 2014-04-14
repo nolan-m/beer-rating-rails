@@ -1,11 +1,12 @@
+<%= content_for(:title, "Types and Styles | Beer Fridge") %>
+
 <div class="row">
   <div class="col-md-12">
 
-    <h1>All Types</h1>
-    <% content_for(:title, "Beer Fridge | Type") %>
+    <h1>Types and Styles</h1>
 
     <ul>
-      <% @types.each do |type| %>
+      <% @types.sort_by {|b| b.name}.each do |type| %>
         <li>
           <%= link_to type.name, type_path(type.slug)%>
         </li>

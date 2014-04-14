@@ -7,19 +7,36 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<div class = "navbar navbar-default navbar-fixed-top">
-  <div class"container">
-    <a href="/" class="navbar-text pull-left">Home</a>
-    <a href="/beers" class="navbar-text pull-left">Beers</a>
-    <a href="/types" class="navbar-text pull-left">Types</a>
-    <a href="/regions" class="navbar-text pull-left">Regions</a>
+<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+  
+  <div class="navbar-header">
+    <%= link_to 'Home', root_path, :class => 'navbar-brand pull-left' %>
+  </div>
+
+    
+    <div class="nav navbar-nav">
+      <%= link_to 'Beers', beers_path, :class => 'navbar-text pull-left' %>
+      <%= link_to 'Breweries', breweries_path, :class => 'navbar-text pull-left' %>
+      <%= link_to 'Types', types_path, :class => 'navbar-text pull-left' %>
+      <%= link_to 'Regions', regions_path, :class => 'navbar-text pull-left' %>
+    </div>
+    <div class="col-sm-3 col-md-3 pull-right">
+    <form class="navbar-form" role="search">
+    <div class="input-group">
+      <input class="form-control" placeholder="Search" name="srch-term" id="srch-term" type="text">
+      <div class="input-group-btn">
+        <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+      </div>
+    </div>
+    </form>
+    </div>
+    
   </div>
 </div>
-
 <div class="container" id="main">
-<%= yield %>
-
-
+<%= yield %>  
 </div>
 </body>
 </html>
+
+

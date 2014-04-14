@@ -1,18 +1,5 @@
-<%= content_for(:title, "Beer Fridge | Edit Type") %>
+<%= content_for(:title, "Edit Type | Beer Fridge") %>
 
 <h1>Edit Type</h1>
 
-<%= render("layouts/errors", :object => @type) %>
-<div class="col-md-3" id="new-beer">
-<%= form_for(@type, :url => type_path(@type.slug)) do |f| %>
-  <div class="form-group">
-    <%= f.label :name %>
-    <%= f.text_field :name, :autofocus => true %>
-  </div>
-  <div class="hidden">
-    <%= f.label :slug %>
-    <%= f.text_field :slug %>
-  </div>
-  <%= f.submit(:class => "btn btn-primary") %>
-<% end %>
-</div>
+<%= render 'form' %>

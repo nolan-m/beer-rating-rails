@@ -1,6 +1,5 @@
 <%= render("layouts/errors", :object => @region) %>
-<div class="col-md-3" id="new-region">
-<%= form_for(@region) do |f| %>
+<%= form_for(@region, :html => { :class => "form-horizontal, col-md-4"}) do |f| %>
   <div class="form-group" focus>
     <%= f.label :name %>
     <%= f.text_field :name, :autofocus => true %>
@@ -9,6 +8,7 @@
     <%= f.label :slug %>
     <%= f.text_field :slug %>
   </div>
-  <%= f.submit(:class => "btn btn-primary") %>
+  <div class="form-group">
+  	<%= f.submit(:class => "btn btn-primary") %>
+	</div>
 <% end %>
-</div>

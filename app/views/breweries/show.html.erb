@@ -1,5 +1,9 @@
+<%= content_for(:title, "#{@brewery.name}| Beer Fridge") %>
+
 <h1><%= @brewery.name %></h1>
 
+<div class="row">
+  <div class="col-md-12">
 <table class="table table-condensed table-hover">
   <thead>
   	<tr>
@@ -12,10 +16,14 @@
   <tbody>
   	<% @brewery.beers.each do |beer| %>
   		<tr>
-  			<td><%= link_to beer.name, beer_path(beer) %></td>
-  			<td><%= link_to beer.type, type_path(beer.type) %></td>
+  			<td><%= link_to beer.name, beer_path(beer.slug) %></td>
+  			<td><%= link_to beer.type.name, type_path(beer.type.slug) %></td>
   			<td><%= beer.abv %></td>
   			<td><%= beer.total_rating %></td>
   		</tr>
+      <% end %>
   </tbody>
 </table>
+
+</div>
+</div>

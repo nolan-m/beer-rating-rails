@@ -5,8 +5,8 @@ class BeersController < ApplicationController
 
   def new
     @beer = Beer.new
-    @types = Type.all
-    @breweries = Brewery.all
+    @types = Type.order(:name)
+    @breweries = Brewery.order(:name)
   end
 
   def create
@@ -24,8 +24,8 @@ class BeersController < ApplicationController
 
   def edit
     @beer = Beer.find_by(:slug => params[:id])
-    @types = Type.all
-    @regions = Region.all
+    @types = Type.order(:name)
+    @breweries = Brewery.order(:name)
   end
 
   def update
