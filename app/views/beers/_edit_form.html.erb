@@ -1,6 +1,5 @@
 <%= render("layouts/errors", :object => @beer) %>
-<div class="col-md-3" id="new-beer">
-<%= form_for(@beer, :url => beer_path(@beer.slug)) do |f| %>
+<%= form_for(@beer, :url => beer_path(@beer.slug), :html => {:class =>'form-horizontal col-md-4'}) do |f| %>
   <div class="form-group">
     <%= f.label :name %>
     <%= f.text_field :name, :autofocus => true %>

@@ -1,5 +1,4 @@
 <%= render("layouts/errors", :object => @brewery) %>
-<div class="col-md-4" id="new-brewery">
 <%= form_for(@brewery, :html => { :class => "form-horizontal col-md-4" }) do |f| %>
   <div class="form-group">
     <%= f.label :name %>
@@ -15,4 +14,3 @@
   </div>
   <%= f.submit(:class => "btn btn-primary") %>
 <% end %>
-</div>

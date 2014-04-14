@@ -6,17 +6,9 @@
     <%= render 'beers/show_beer' %>
     <hr>
     <h4>Add your own review.</h4>
-    <form action="/beers/<%= @beer.slug %>" method="post">
       <div class="form-group">
-        <%= render 'rating' %>
-
+        <%= render 'beers/rating' %>
       </div>
-      <div class="row">
-        <div class="col-md-6">
-          <button class="btn btn-default" id="review_btn">Add Review</button>
-        </div>
-      </div>
-    </form>
   </div>
     <div class="col-md-6" id="reviews">
       <h4>Reviews:</h4>

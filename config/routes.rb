@@ -4,5 +4,6 @@ BeerFridge::Application.routes.draw do
   resources :regions
   resources :types
   resources :breweries
+  resources :ratings, only: [:create]
   match '/beers/:slug', {via: :post, to: 'ratings#create'}
 end

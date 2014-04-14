@@ -6,6 +6,7 @@ class BreweriesController < ApplicationController
 
 	def new
 		@brewery = Brewery.new
+		@regions = Region.order(:name)
 	end
 
 	def create
@@ -40,4 +41,10 @@ class BreweriesController < ApplicationController
 		@brewery.destroy
 		redirect_to breweries_path
 	end
+
+private
+	def brewery_params
+		params.require(:brewery).permit(:name, :region_id)
+	end
+
 end

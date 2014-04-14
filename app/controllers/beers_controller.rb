@@ -10,6 +10,7 @@ class BeersController < ApplicationController
   end
 
   def create
+    params[:beer][:total_rating] = 0
     @beer = Beer.new(params[:beer])
     if @beer.save
       redirect_to beers_path, notice: "Beer added."
@@ -20,6 +21,7 @@ class BeersController < ApplicationController
 
   def show
     @beer = Beer.find_by(:slug => params[:id])
+    @rating = Rating.new
   end
 
   def edit

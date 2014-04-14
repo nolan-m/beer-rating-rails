@@ -1,12 +1,17 @@
-
-    <label for="rating_score">Rating:</label><br>
-
+<%= render("layouts/errors", :object => @rating) %>
+<%= form_for(@rating, url: beer_path(@beer.slug), :html => { :class => 'form-horizontal col-md-4'}) do |f| %>
+  <div class="form-group">
+    <%= f.label :score, "Rating:" %>
     <div class="row lead">
         <div id="stars" class="starrr"></div>
     </div>
-
-
-    <input name="rating[score]" id="score" type="hidden">
-    <label for="rating_review">Review:</label><br>
-    <textarea id="rating_review" name="rating[review]"></textarea>
-
+    <%= f.hidden_field :score, :id => "score"  %>
+	</div>
+  <div class="form-group">
+    <%= f.label :review %>
+    <%= f.text_area :review %>
+  </div>
+  <div class="form-group">
+  	<%= f.submit(:class => "btn btn-primary") %>
+	</div>
+<% end %>
